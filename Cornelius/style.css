@@ -1,0 +1,166 @@
+/* Whole page style */
+*{
+    margin: 0;
+	padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.nav{
+    background-color: white;
+    overflow: hidden;
+    font-size: 140%;
+	font-weight: bold;
+    letter-spacing: 1.2px;
+    border-bottom: 1px solid rgb(189, 189, 189);;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.4);
+    position: relative;   
+}
+
+#nav_left a {
+	float: left;
+	color: rgb(24, 131, 86);
+	text-align: center; /* Center text */
+	text-decoration: none;
+	padding: 22px 16px; /* Spacing */
+}
+
+/* Navigation Bar Left Side link */
+#nav_right a {
+	float: right;
+	color: rgb(24, 131, 86);
+	text-align: center; /* Center text */
+	text-decoration: none;
+	padding: 22px 16px; /* Spacing */
+}
+
+#nav_left a:hover, #nav_right a:hover{
+    color: #00f7a4;
+	transition: 0.5s; /* Set transtion when hover */
+}
+
+.active{
+    color: rgb(87, 201, 163);
+}
+
+.container{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3% 0;
+    background-color: #f0f2f5;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calendar{
+    width: 45rem;
+    height: 52rem;
+    background-color: #222227;
+    color: #eee;
+    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+    float: left;
+    border-radius: 3px;
+}
+
+.month{
+    width: 100%;
+    height: 12rem;
+    background-color: rgb(24, 131, 86);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+    border-radius: 3px 3px 0 0;
+}
+
+.month i{
+    font-size: 150%;
+    cursor: pointer;
+    padding: 0 2%
+}
+
+.month h1{
+    font-size: 210%;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-bottom: 3%;
+}
+
+.month p{
+    font-size: 1.6rem;
+}
+
+.weekdays{
+    width: 100%;
+    height: 5rem;
+    padding: 0 0.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.weekdays div{
+    font-size: 130%;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    width: calc(44.2rem/7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.days{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.2rem;
+}
+
+.days div{
+    font-size: 1.4rem;
+    margin: 0.3rem;
+    width: calc(40.2rem/7);
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+    transition: background-color 0.2s;
+}
+
+.days div:hover:not(.today){
+    background-color: #262626;
+    border: 0.2rem solid #777;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.prev-date, .next-date{
+    opacity: 0.5;
+}
+
+.today{
+    background-color: rgb(24, 131, 86);
+    border-radius: 5px;
+}
+
+#booked{
+    width: 45%;
+    float: right;
+    padding: 2% 0;
+    border: 1px solid black;    
+}
+
+footer{
+    left: 0;
+    bottom: 0;
+    padding: 2% 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(24, 131, 86);
+    color: white;
+}
