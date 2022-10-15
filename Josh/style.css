@@ -1,0 +1,41 @@
+.wrapper
+{
+  width: 100%;
+  text-align: center;
+}
+
+h1
+{
+  font-family: 'Cairo', sans-serif;
+}
+
+input
+{
+  text-align: left;
+  margin-bottom: 20px;
+
+  padding: 18px;
+  width: 360px;
+  border: none;
+  box-shadow:3px 4px 10px rgba(0,0,0,0.2);
+}
+
+
+button.btn
+
+{
+  padding: 18px;
+  border: none;
+  box-shadow:3px 4px 10px rgba(0,0,0,0.2);
+  background-color: white;
+
+}
+button.btn
+{
+  transition: 300ms;
+}
+
+button.btn:hover
+{
+  transform: scale(1.05);
+}
