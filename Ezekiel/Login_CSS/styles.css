@@ -1,0 +1,319 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*Login*/
+body
+{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:rgb(87, 201, 163);
+}
+/*Login*/
+.form
+{
+    position: absolute;
+    padding: 50px 50px;
+    display: flex;
+    flex-direction: column;
+}
+/*Login*/
+.form h2
+{
+    color:rgb(255, 234, 202);
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.1em;
+}
+/*Login*/
+.inputBox
+{
+    position: relative;
+    width: 300px;
+    margin-top: 25px;
+}
+/*Login*/
+.inputBox input
+{
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: black;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    margin-top: 10px;
+    z-index: 10;
+}
+/*Login*/
+.inputBox span
+{
+    position: absolute;
+    left: 0;
+    padding: 25px 10px 10px;
+    font-size: 1em;
+    color: rgb(255, 234, 202);
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+/*Login*/
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span
+{
+    color:rgb(255, 234, 202);
+    transform: translateY(-35px);
+    font-size: 0.95em;
+}
+/*Login*/
+.inputBox i
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: rgb(255, 234, 202);
+    border-radius: 4px;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 9;
+}
+/*Login*/
+.inputBox input:valid ~ i,
+.inputBox input:focus ~ i
+{
+    height: 44px;
+}
+/*Login*/
+input[type="submit"]
+{
+    border: none;
+    outline: none;
+    background-color: rgb(255, 234, 202);
+    padding: 11px 25px;
+    width: 100%;
+    margin-top: 50px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 18px;
+    color: rgb(141, 90, 47);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 12px 0 rgba(0, 0, 0, 0.19);
+    transition-duration: 0.4s;
+}
+.outerbox{
+    margin: 0 auto;
+}
+/*Login*/
+.box{
+    float: left;
+    width: 700px;
+    height: 450px;
+    background-color: rgb(24, 131, 86);
+    border-radius: 8px;
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+/*Login*/
+/*Login*/
+.form1
+{
+    position: absolute;
+    padding: 50px 50px;
+    display: flex;
+    flex-direction: column;
+}
+/*Login*/
+.form1 h2
+{
+    color:rgb(255, 234, 202);
+    font-weight: 450;
+    text-align: left;
+    letter-spacing: 0.05em;
+}
+/*Login*/
+.inputBox1
+{
+    position: relative;
+    width: 260px;
+    margin-top: 35px;
+}
+/*Login*/
+.form1 p
+{
+    color:rgb(255, 234, 202);
+    font-weight: 300;
+    text-align: left;
+    letter-spacing: 0.05em;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 30px;
+}
+/*Registration*/
+.box2{
+    position: relative;
+    width: 400px;
+    height: 720px;
+    background-color: rgb(24, 131, 86);
+    border-radius: 8px;
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+/*Registration*/
+.form2{
+    position: absolute;
+    padding: 50px 50px;
+    display: flex;
+    flex-direction: column;
+}
+/*Registration*/
+.form2 h2
+{
+    color:rgb(255, 234, 202);
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.1em;
+}
+/*Registration,Login*/
+.button
+{
+    border: none;
+    outline: none;
+    background: rgb(255, 234, 202);
+    padding: 5px 25px;
+    max-width: 100px;
+    width: 100%;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    color: rgb(141, 90, 47);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
+}
+/*Login*/
+.box1 .form1 .signup{
+    border: none;
+    outline: none;
+    background: rgb(255, 234, 202);
+    padding: 5px 20px;
+    max-width: 100px;
+    width: 100%;
+    margin-top:10px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    color: rgb(141, 90, 47);
+}
+/*Admin_Login*/
+.box3
+{
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background-color: rgb(24, 131, 86);
+    border-radius: 8px;
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+/*Admin_Login*/
+.form3
+{
+    position: absolute;
+    padding: 50px 50px;
+    display: flex;
+    flex-direction: column;
+}
+/*Admin_Login*/
+.form3 h2
+{
+    color:rgb(255, 234, 202);
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.1em;
+}
+/*Login*/
+.box4
+{
+    margin-top: 25px;
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+/*Admin_Login*/
+.box5
+{
+    
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+/*Login*/
+a:link {
+    color: rgb(87, 201, 163);
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: rgb(87, 201, 163);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: rgb(255, 234, 202);
+  }
+  
+  a:active {
+    color: rgb(255, 234, 202);
+  }
+
+.forgotPass
+{   
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+.box6
+{
+    position: relative;
+    width: 400px;
+    height: 380px;
+    background-color: rgb(24, 131, 86);
+    border-radius: 8px;
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.forgotPass {
+    display: block;
+    margin: auto;
+    width: 115px;
+    margin-top: 20px;
+}
+
+input[name='country']{
+    border: none;
+    outline: none;
+    position: relative;
+    width: 300px;
+    margin-top: 5px;
+    height: 44px;
+    font-size: 1em;
+    padding: 10px;
+    background-color:rgb(255, 234, 202);
+    border-radius: 4px;
+}
+.inputBox1 span
+{
+    left: 0;
+    padding: 25px 10px 10px;
+    font-size: 1em;
+    color: rgb(255, 234, 202);
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+
