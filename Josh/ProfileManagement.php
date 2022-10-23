@@ -36,7 +36,7 @@ $row = mysqli_fetch_assoc($result);
       var a = document.getElementById("pwd").value;
       var b = document.getElementById("cpwd").valie;
       if(a!=b){
-        document.getElementById("message").innerHTML="** Passwrod Not Same";
+        document.getElementById("message").innerHTML="** Password Not Same";
         return false;
       }
       elseif(a==b){
@@ -75,7 +75,10 @@ $row = mysqli_fetch_assoc($result);
           <form action="update.php" method="post" enctype="multipart/form-data" onsubmit="return myfun()">
 
                       <div class="inputBox">
-                          <input type="text" id="accName" name="accName" placeholder="Full Name" required>
+                          <input type="text" id="accName" name="accName" placeholder="Full Name" value="<?php  echo $row["accName"]?>" required>
+                      </div>
+                      <div class="inputBox">
+                          <input class="mdl-textfield__input" type="text" id="accPhoneNo" name="accPhoneNo" placeholder="Contact Number" value="<?php  echo $row["accPhoneNo"]?>" pattern="^(\+?6?01)[02-46-9]-*[0-9]{7}$|^(\+?6?01)[1]-*[0-9]{8}$" required>
                       </div>
                       <div class="inputBox">
                           <input type="password" id="pwd" name="pwd" placeholder="Password" value="" required><br>
@@ -83,9 +86,6 @@ $row = mysqli_fetch_assoc($result);
                       <div class="inputBox">
                           <input type="password" id="cpwd" name="cpwd" placeholder="Confirm Password" value="" required><br>
                           <span id="message"></span>
-                      </div>
-                      <div class="inputBox">
-                          <input class="mdl-textfield__input" type="text" id="accPhoneNo" name="accPhoneNo" placeholder="Contact Number" pattern="^(\+?6?01)[02-46-9]-*[0-9]{7}$|^(\+?6?01)[1]-*[0-9]{8}$" required>
                       </div>
                       <div class="inputBox">
                           <input style="background:white;" type="text" id="accLastVisit" name="accLastVisit" value="<?php  echo $row["accLastVisit"]?>" required disabled>
