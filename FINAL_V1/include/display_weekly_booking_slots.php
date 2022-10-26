@@ -25,7 +25,7 @@
             <td>" . $row["bookingDate"] . "</td>
             <td>" . $row["bookingTime"] . "</td>
             <td>" . $row["bookingAvailSlots"] . "</td>
-            <td><a onclick = 'return confirmBook()' class='booking_buttons' href = 'add_appointment.php?bID=$row[bookingID]&userID=$userID&btime=$row[bookingTime]&bdate=$row[bookingDate]'>Book</td>
+            <td><a onclick = 'return confirmBook()' class='booking_buttons' href = 'include/add_appointment.php?bID=$row[bookingID]&userID=$userID&btime=$row[bookingTime]&bdate=$row[bookingDate]'>Book</td>
             </tr>";
         }
         echo "</table>"; 
