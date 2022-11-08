@@ -1,0 +1,43 @@
+<div class="reviews_container">
+        <div class="review">
+            <?php
+                include("connection.php");
+                $query= "SELECT * FROM reviews LEFT JOIN accounts on reviews.reviewAccID=accounts.accID";
+                $result = mysqli_query($con, $query);
+                
+                if(mysqli_num_rows($result) > 0){
+                    while ($row = mysqli_fetch_assoc($result)){
+                        if($row["accAccess"]==2){
+                            echo "<div class='user_review'>";
+
+                            echo "<div class='review_user_name'>";
+                            echo $row["accName"];
+                            echo "</div>";
+
+                            echo "<div class='review_date'>";
+                            echo $row["reviewDate"];
+                            echo "</div>";
+
+                            echo "<div class='review_comment'>";
+                            echo $row["reviewComment"];
+                            echo "</div>";
+
+                            echo "<div class='review_buttons'>";
+                            if($row["reviewVisible"]==1){
+                                echo"<button type='button' class='review_buttons'>Hide</button>";
+                            }
+                            else{
+                                echo"<button type='button' class='review_buttons'>Show</button>";
+                            }
+                            echo"<button type='button' class='review_buttons'>Delete</button>";
+                            echo "</div>";
+
+                            echo "</div>";
+                            
+                        }
+                    }
+                }
+        
+            ?>
+        </div>
+    </div>
