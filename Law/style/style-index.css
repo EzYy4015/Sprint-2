@@ -1,0 +1,565 @@
+body, html{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+@font-face {
+    font-family: "mainfont";
+    src: url("../fonts/Cocogoose.ttf");
+}
+
+@font-face {
+    font-family: "joy";
+    src: url("../fonts/Joynoted.ttf");
+}
+
+@font-face {
+    font-family: "typewriter";
+    src: url("../fonts/JMHTypewriter.otf");
+}
+
+@font-face {
+    font-family: "Comfortaa";
+    src: url("../fonts/Comfortaa.ttf");
+}
+
+/* Copy this for the side navigation */
+/* Begin of template style, scroll until you find the end comment */
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: white; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    font-family: mainfont;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    margin-left: 5px;
+    transition: 0.2s ease-in;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sidenav img{
+    margin-left: 10px;
+    margin-top: -55px;
+}
+
+.opennav{
+    position: fixed;
+    top: 0;
+    margin-left: 12px;
+    margin-top: 9px;
+    padding: 2px 4px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.sidemsg img{
+    position: fixed;
+    margin-top: 15%;
+}
+
+.sidenav-box{
+    margin-top: 50%;
+}
+
+.sidenav-contact{
+    height: 20%;
+    margin-top: 5%;
+}
+
+.sidenav-contact p{
+    font-family: mainfont;
+    padding-left: 25px;
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: none;
+}
+
+.sidenav-contact-logos a{
+    display: inline-block;
+    font-family: none;
+    margin-top: -20px;
+    color: black;
+    font-size: 30px;
+}
+
+.sidenav-contact-logos a:hover{
+    margin-left: 0;
+    font-size: 32.5px;
+}
+
+/* End of template */
+
+
+
+
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.bg img{
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.mainbody{
+    margin-left: 60px;
+    background-color: rgb(255, 234, 202);
+}
+
+.loginbox{
+    position: absolute;
+    background-color: white;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    right: 50px;
+    top: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.loginbox:hover{
+    background-color: black;
+    transition: 0.2s ease-in;
+}
+
+.loginbox-img{
+    width: 35px;
+    float: left;
+    display: block;
+    margin-top: 7.5px;
+    margin-left: 17.5px;
+    font-size: 30px;
+    border-style: none solid none none;
+}
+
+
+.loginbox-name{
+    width: 82.5px; 
+    float: left;
+    padding-left: 10px;
+    display: block;
+    font-size: 10px;
+    font-family: mainfont;
+}
+
+.login-box-button{
+    color: black;
+}
+
+.login-box-button:hover{
+    color: white;
+    background-color: black;
+    transition: 0.2s ease-in;
+}
+
+
+
+
+
+
+.promo-box{
+    position: relative;
+    border-style: 3px solid white;
+    border-radius: 5px;
+}
+
+.promo-box-texts{
+    position: absolute;
+    margin-top: 10%;
+    background-color: rgba(0,0,0,0.8);
+    margin-left: 100px;
+    padding: 30px 20px;
+    border-radius: 10px;
+}
+
+.promo-box-texts h1{
+    margin-top: 0;
+    color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 50px;
+}
+
+.promo-box-texts h2{
+    color: white;
+    margin-bottom: 30px;
+    margin-top: -20px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.promo-book-button{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    background-color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 2px;
+    color: black;
+}
+
+
+
+
+
+
+.footer-container{
+    background-color: green;
+    /* 1 rem = 16px */
+    box-sizing: border-box;
+}
+
+.footer{
+    /* 40 viewport height */
+    height: 35vh;
+    background-color: rgb(24, 131, 86);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.footer-heading{
+    display: flex;
+    flex-direction: column;
+    margin-right: 4rem;
+}
+
+.footer-heading h2{
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    color: white;
+    font-family: mainfont;
+}
+
+.footer-heading a{
+    color: white;
+    font-size: 12.5px;
+    font-family: mainfont;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.footer-heading a:hover{
+    font-size: 15px;
+    transition: 0.2s ease-in-out;
+}
+
+.footer-bottom{
+    text-align: center;
+    color: white;
+}
+
+.footer-bottom p{
+    background: black;
+    margin: 0 auto;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.footer-grass img{
+    margin-bottom: -5px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+
+
+
+/* Float four columns side by side */
+.bookingcard-col {
+  float: left;
+  width: 20%;
+  padding-left: 50px;
+  height: 170px;
+  font-family: Comfortaa;
+  text-transform: uppercase;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.bookingcard-row {
+    font-family: Comfortaa;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+
+.bookingcard-row h1{
+    text-align: center;
+    padding-top: 20px;
+}
+
+.bookingcard-row p{
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* Clear floats after the columns */
+.bookingcard-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.bookingcard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  margin-top: 50px;
+}
+
+.cardcontainer{
+    width: 70%;
+    border-radius: 10px;
+    background-color: #f0ede6;
+    margin-left: 20px;
+    margin-top: 21px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.notifbox{
+    width: 27%;
+    height: 457.5px;
+    margin-top: 21px;
+    margin-left: 20px;
+    background-color: #f0ede6;
+    float: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.notifbox h1{
+    padding-top: 20px;
+    text-align: center;
+    font-family: Comfortaa;
+    text-transform: uppercase;
+}
+
+.bigcontainer-1{
+    display: flex;
+}
+
+.notif-individual{
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 90%;
+    padding: 10px 0;
+}
+
+/* notification part */
+.notifbox .notif-scroll{
+  
+    height: 300px;
+    overflow-y: scroll;
+}
+
+
+.notif-individual p{
+    text-align: center;
+    font-family: Comfortaa;
+}
+
+.promo-container{
+    width: 95%;
+    padding: 30px;
+    margin-top: 21px;
+    background-color: #f0ede6;
+    margin-left: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: Comfortaa;
+}
+
+.individual-promo-container{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    margin: 30px 0; 
+    border-radius: 10px;
+}
+
+.individual-promo-section-left{
+    width: 37.5%;
+    display: inline-block;
+}
+
+.individual-promo-section-left img{
+    width: 600px;
+    border-radius: 10px 0 0 10px;
+    float: left;
+    height: 400px;
+}
+
+.individual-promo-section-right{
+    margin-top: 100px;
+    text-align: left;
+}
+
+.individual-promo-section-bottom{
+   
+    text-align: left;
+}
+
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
+
+  .commentbox,
+  .postcomment .list{
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 2px 2px #0002;
+
+  }
+
+  .comment-session{
+    width: 650px;
+    height: auto;
+    margin: 0 auto;
+
+  }
+
+  .postcomment .list{
+    width: 100%;
+    margin-bottom: 12px;
+
+  }
+
+  .postcomment .list .user{
+    display: flex;
+    padding: 8px;
+    overflow: hidden;
+    
+  }
+
+  .comment-session .name{
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .postcomment .list .day{
+    font-size: 10px;
+
+  }
+
+  .postcomment .commentPosted{
+    padding: 0 0 15px 58px;
+    text-align: left;
+
+  }
+
+  .commentbox{
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  .commentbox .user{
+    display: flex;
+    width: min-content;
+  }
+  
+  .commentbox textarea{
+    background: #eee;
+    width: -webkit-fill-available;
+    
+    margin: 10px 0;
+    padding: 10px;
+    resize: inherit;
+    border-radius: 5px;
+    border:none;
+    box-shadow: 0 0 0 1px #0003;
+
+  }
+
+
+  .commentbox .commentsubmit{
+    float: right;
+    padding: 6px 10px;
+    border: none;
+    background: #009cff;
+    color: #eeee;
+    cursor: pointer;
+    border-radius: 3px;
+
+  }
+
+  .commentbox .commentsubmi:hover{
+    background: #009cff;
+  }
