@@ -1,0 +1,372 @@
+body, html{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+    background-color: rgb(255, 234, 202); 
+}
+
+@font-face {
+    font-family: "mainfont";
+    src: url("../fonts/Cocogoose.ttf");
+}
+
+@font-face {
+    font-family: "joy";
+    src: url("../fonts/Joynoted.ttf");
+}
+
+@font-face {
+    font-family: "typewriter";
+    src: url("../fonts/JMHTypewriter.otf");
+}
+
+@font-face {
+    font-family: "Comfortaa";
+    src: url("../fonts/Comfortaa.ttf");
+}
+
+/* Copy this for the side navigation */
+/* Begin of template style, scroll until you find the end comment */
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: white; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    z-index: 15;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    font-family: mainfont;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    margin-left: 5px;
+    transition: 0.2s ease-in;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sidemsg{
+    background-color: white;
+    margin-top: 0;
+    width: 60px;
+    height: 100%;
+    display: block;
+    float: left;
+    position: fixed;
+    z-index: 5;
+}
+
+.opennav{
+    position: fixed;
+    top: 0;
+    margin-left: 12px;
+    margin-top: 9px;
+    padding: 2px 4px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.sidemsg img{
+    position: fixed;
+    margin-top: 15%;
+    margin-left: 0;
+    padding-left: 0;
+    z-index: 8;
+}
+
+.sidenav-box{
+    margin-top: 50%;
+}
+
+.sidenav-contact{
+    height: 20%;
+    margin-top: 5%;
+}
+
+.sidenav-contact p{
+    font-family: mainfont;
+    padding-left: 25px;
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: none;
+}
+
+.sidenav-contact-logos a{
+    display: inline-block;
+    font-family: none;
+    margin-top: -20px;
+    color: black;
+    font-size: 30px;
+}
+
+.sidenav-contact-logos a:hover{
+    margin-left: 0;
+    font-size: 32.5px;
+}
+
+.mainbody{
+    margin-left: 60px;
+    background-color: rgb(255, 234, 202);
+}
+
+.footer-container{
+    background-color: green;
+    /* 1 rem = 16px */
+    box-sizing: border-box;
+}
+
+.footer{
+    /* 40 viewport height */
+    height: 35vh;
+    background-color: rgb(24, 131, 86);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.footer-heading{
+    display: flex;
+    flex-direction: column;
+    margin-right: 4rem;
+}
+
+.footer-heading h2{
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    color: white;
+    font-family: mainfont;
+}
+
+.footer-heading a{
+    color: white;
+    font-size: 12.5px;
+    font-family: mainfont;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.footer-heading a:hover{
+    font-size: 15px;
+    transition: 0.2s ease-in-out;
+}
+
+.footer-bottom{
+    text-align: center;
+    color: white;
+}
+
+.footer-bottom p{
+    background: black;
+    margin: 0 auto;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.footer-grass img{
+    margin-bottom: -5px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.profile-main-container{
+    background-color: #f0ede6;
+    border-radius: 15px;
+    margin: 100px auto;
+    width: 70%;
+    padding: 25px;
+    display: flex;
+    box-shadow: 4px 4px 4px -2px black;
+}
+
+.profile-container-left{
+    width: 20%;
+    background-color: #f0ede6;
+    border-radius: 5px 0 0 5px;
+}
+
+.profile-container-right{
+    width: 80%;
+    background-color: #f0ede6;
+    display: flex;
+    border-left: 1px solid black;
+}
+
+.profile-container-right-type2{
+    width: 80%;
+    text-align: center;
+    justify-content: center;
+}
+
+.left-container-icons a {
+    padding: 20px;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    font-family: mainfont;
+    border-bottom: 1px solid black;
+    border-radius: 0 0 0 5px;
+}
+
+.left-container-icons a:hover {
+    margin-left: 5px;
+    transition: 0.2s ease-in;
+}
+
+.profile-container-right-ileft{
+    text-align: center;
+    width: 20%;
+}
+
+.profile-container-right-iright{
+    width: 80%;
+}
+
+.profile-container-right-iright-type2{
+    width: 100%;
+    font-family: Comfortaa;
+}
+
+.profile-container-right-ileft i{
+    font-size: 100px;
+    padding: 20px;
+    width: 100px;
+    margin-top: 50%;
+    margin-left: 75px;
+    border: 5px solid black;
+    border-radius: 50%;
+}
+
+.profile-container-right-iright th{
+    text-align: left;
+}
+
+.profile-container-right-iright-contents{
+    margin-left: 0 auto;
+}
+
+.profile-container-right-iright-contents .save-button{
+    margin: 0 auto;
+    text-align: center;
+    background-color: none;
+    font-size: 20px;
+    font-family: Comfortaa;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+}
+
+.profile-container-right-iright-contents-type2{
+    margin: 0 auto;
+}
+
+.profile-container-right-iright h1{
+    font-family: Comfortaa;
+    text-align: center;
+}
+
+.profile-m{
+    margin: 0 auto;
+    border-spacing: 110px 10px;
+    margin-bottom: 50px;
+}
+
+.profile-m td, th{
+    font-family: Comfortaa;
+    font-size: 20px;
+    border: none;
+}
+
+.profile-m tr{
+    margin-top: 50px;
+}
+
+.profile-m input{
+    border-radius: 5px;
+    height: 30px;
+    width: 200px;
+}
+
+.profile-preferences{
+    margin: 0 100px;
+    border-collapse: collapse;
+    margin-bottom: 100px;
+}
+
+.profile-preferences th, td{
+    font-family: Comfortaa;
+    font-size: 20px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: justify;
+}
+
+.profile-phistory th, td{
+    font-family: Comfortaa;
+    font-size: 20px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: justify;
+}
+
+.profile-phistory{
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-bottom: 100px;
+}
+
+
+.profile-m-notif input{
+    width: 25px;
+    vertical-align: bottom;
+    padding: 0;
+    margin: 0;
+ }
+
+.profile-m-notif label{
+    display: inline;
+    padding-left: 10px;
+}
+
+.profile-container-right-iright-contents input{
+    font-family: Comfortaa;
+}
+
+.profile-container-right-iright-type2 h1{
+    margin-top: 50px;
+}
+
+.top-home-button a{
+    text-decoration: none;
+    color: black;
+    font-size: 50px;
+}
