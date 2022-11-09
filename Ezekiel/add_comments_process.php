@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8"/>
 	<meta name="description" content="Sprint 2"/>
-	<meta name="keywords" content="Products"/>
+	<meta name="keywords" content="Comments"/>
 	<meta name="author" content="Ezekiel Ling"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel = "stylesheet" type = "text/css" href = "style/style_products.css">
@@ -13,7 +13,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<title>Cacti Succulents - Update Product</title>
+	<title>Cacti Succulents - Add Comments</title>
 
     <!-- Font Type -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,22 +39,18 @@
         <div class="inner_container">
             <h1>Result</h1>
             <?php
-                $prodID = $_POST['prodID'];
-                $prodTitle = $_POST['aprodTitle'];
-                $prodDesc = $_POST['aprodDesc'];
-                $prodImage = $_POST['aImage'];
-                $prodVisible = $_POST['visibility'];
 
-                $updateProd = "UPDATE products
-                                SET prodTitle = '$prodTitle',
-                                    prodDesc = '$prodDesc',
-                                    prodImage = '$prodImage',
-                                    prodVisible = '$prodVisible'
-                                WHERE prodID = $prodID";
+                $prodID = $_POST['prodID'];
+                $prodDisc = $_POST['acomment'];
+                $discVisible = $_POST['visibility'];
+                $discAddedBy = $_SESSION['userid'];
+
+                $addDisc = "INSERT INTO discussions(discProduct, prodDisc, discVisible, discAddedBy)
+                                VALUES ('$prodID', '$prodDisc', '$discVisible', '$discAddedBy')";
                 
-                echo "<p>Note that only the 5 products will be shown in the page if there are more than 5 products set to visible.</p>";
-                mysqli_query($con, $updateProd);
-                
+                echo "<p>Note that only the latest 5 products will be shown in the page if there are more than 5 products set to visible.</p>";
+                mysqli_query($con, $addDisc);
+                    
             ?>
 
             <a class = "return" href = "manage-products.php">Return to Products Page</a>

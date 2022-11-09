@@ -5,10 +5,10 @@
 <head>
 	<meta charset="utf-8"/>
 	<meta name="description" content="Sprint 2"/>
-	<meta name="keywords" content="ProductnDiscussions"/>
+	<meta name="keywords" content="Products"/>
 	<meta name="author" content="Ezekiel Ling"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel = "stylesheet" type = "text/css" href = "style/style_adminbooking.css">
+	<link rel = "stylesheet" type = "text/css" href = "style/style_products.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Booking JS -->
