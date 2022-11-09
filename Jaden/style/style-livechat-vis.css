@@ -1,0 +1,185 @@
+@font-face {
+    font-family: "mainfont";
+    src: url("../fonts/Cocogoose.ttf");
+}
+
+@font-face {
+    font-family: "joy";
+    src: url("../fonts/Joynoted.ttf");
+}
+
+@font-face {
+    font-family: "typewriter";
+    src: url("../fonts/JMHTypewriter.otf");
+}
+
+@font-face {
+    font-family: "Comfortaa";
+    src: url("../fonts/Comfortaa.ttf");
+}
+
+.chat-box-minimized{
+    display: block;
+}
+
+.chat-box-minimized i{
+    position: fixed;
+    bottom: 50px;
+    right: 80px;
+    font-size: 50px;
+    color: white;
+    border-radius: 50%;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: black;
+    cursor: pointer;
+}
+
+.chat-box{
+    position: fixed;
+    display: none;
+    bottom: 0;
+    right: 80px;
+    width: 400px;
+    height: 450px;
+    background-color: #DCDCDC;
+    /* overflow-y: scroll; */
+}
+
+.chat-box-close-button{
+    background-color: black;
+    height: 30px;
+    margin-top: 0;
+}
+
+.chat-box-close-button p{
+    position: fixed;
+    color: white;
+    font-family: Comfortaa;
+    margin: 10px auto;
+    padding-left: 120px;
+}
+
+.chat-box-close-button i{
+    font-size: 20px;
+    color: red;
+    float: right;
+    margin: 6px;
+    cursor: pointer;
+}
+
+.chat-box-message-bottom{
+    position: fixed;
+    bottom: 0;
+}
+
+.chat-box-message-bottom input{
+    width: 362px;
+    height: 30px;
+    font-family: Comfortaa;
+    outline: none;
+}
+
+.chat-box-message-bottom i{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chat-box-message-visitor{
+    display: flex;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+/* Visitor Icon */
+.chat-box-message-visitor-right{
+    float: left;
+    width: 15%;
+}
+
+/* Visitor Messages */
+.chat-box-message-visitor-left{
+    float: right;
+    width: 85%;
+    background-color: white;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.chat-box-message-visitor-left p{
+    font-family: Comfortaa;
+    padding-left: 10px;
+}
+
+.chat-box-message-admin{
+    display: flex;
+    padding: 15px;
+    width: 93%;
+    margin-top: 10px;
+}
+
+.chat-box-message-admin i{
+    padding: 15px;
+    font-size: 30px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Admin Messages */
+.chat-box-message-admin-right{
+    float: left;
+    width: 80%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* Admin Messages */
+.chat-box-message-admin-right p{
+    font-family: Comfortaa;
+    padding-left: 10px;
+}
+
+/* Admin Icon */
+.chat-box-message-admin-left{
+    float: right;
+    width: 20%;
+}
+
+.chat-box-message-visitor i{
+    padding: 15px;
+    font-size: 30px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.callout {
+    position: fixed;
+    display: block;
+    bottom: 160px;
+    right: 80px;
+    max-width: 200px;
+}
+
+.callout-container {
+    padding: 15px;
+    background-color: #DCDCDC;
+    color: black;
+    font-family: Comfortaa;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.closebtn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    color: red;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.closebtn:hover {
+    cursor: pointer;
+}
