@@ -1,20 +1,6 @@
 
 <?php  ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL); ?>
-<?php
-
-if (isset($_POST['action']) && $_POST['action'] == 'addcomment' && isset($_SESSION['userid']) && $_SESSION['userid'] > 0 && isset($_POST['productid']) && isset($_POST['comments'])) {
-    $productid = +$_POST['productid']; // force integer
-    $comment = htmlspecialchars($_POST['comments']); // sanitize, prevent xss attack
-    $accID = $_SESSION['userid'];
-    include("saveComment.php");
-    getCommentInfo($productid, $comment, $accID);
-   
-}
-
-
-
-
-?>
+<!--  -->
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,8 +56,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'addcomment' && isset($_SESSI
     <?php include("include/navigation.php");
     
      include ('include/connection.php'); 
-    //  include("include/functions.php");
-    //  check_login();
+     include("include/functions.php");
+     check_login();
 
      ?> 
 
@@ -169,17 +155,29 @@ if (isset($_POST['action']) && $_POST['action'] == 'addcomment' && isset($_SESSI
                                     <div class="commentbox">
                                         <div class="user">
 
-                                            <div class="name">ABC</div>
+                                            <div class="name">' ?> <?php require_once __DIR__.'/include/meekrodb-2.4/db.class.php';
+                                            if (isset($_SESSION['userid']) || $_SESSION['userid'] > 0 || $_SESSION['loggedin'] == 1 ||$_SESSION['loggedin'] == 2){
+                                                // not logged in
+                                                $accName = DB::queryFirstField("SELECT accName  FROM accounts WHERE accID = %i", $_SESSION['userid']);
+                                                echo $accName;
+                                                
+                                            }else{
+                                                echo ''; 
+                                            }
+                                            echo'</div>'; ?>
+                                        <?php echo'
                                         </div>
-                                            <form action="" method="post">
+                                            <form action="saveComment.php" method="post">
                                         
                                             <textarea name="comments" id="comments" cols="30" rows="3" placeholder="Your message"></textarea>
-                                            <input type="hidden" name="action" value="addcomment">
+                                            
+                                            <input type="hidden" name="userID" value="'.$_SESSION['userid'].'">
                                             <input type="hidden" name="productid" value="'.$row["prodID"].'">
+
                                             <button type="submit" class="commentsubmit" onclick="';
                                             
                                             
-                                            if (!isset($_SESSION['UserID']) || $_SESSION['UserID'] <= 0){
+                                            if (!isset($_SESSION['userid']) || $_SESSION['userid'] <= 0){
                                             // not logged in
                                             echo 'showAlert();return false;'; 
                                             }
