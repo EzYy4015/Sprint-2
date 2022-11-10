@@ -44,7 +44,6 @@
             <h1>Comments</h1>
             <?php    
 
-
                 $prodID = $_POST['prodID'];
                 $sql = "SELECT * FROM discussions WHERE discProduct = $prodID";
                 $result = mysqli_query($con, $sql);
@@ -70,6 +69,14 @@
                         // Create form to bring data to other page
                         echo "<td class = 'action2'>
                                 <ul>
+                                    <li>
+                                        <form id = 'delete_form2' action = 'update_comments_process.php' method = 'post' onsubmit = 'return confirmUpdate()'>
+                                            <input type = 'hidden' name  = 'discID' value = '" . $row["discID"] . "'> 
+                                            <input type = 'hidden' name  = 'discVisible' value = '" . $row['discVisible'] . "'>
+                                            <input type = 'submit' id = 'btn_update' name = 'btn_update' value = 'Update'>
+                                        </form>
+                                    </li>
+
                                     <li>
                                         <form id = 'delete_form2' action = 'delete_comments_process.php' method = 'post' onsubmit = 'return confirmDelete()'>
                                             <input type = 'hidden' name  = 'discID' value = '" . $row["discID"] . "'> 
