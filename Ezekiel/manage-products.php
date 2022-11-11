@@ -41,13 +41,44 @@
     <div class = "container">
         <!-- Booking Detail -->
         <div class="booking_detail">
+
             <h1>Products</h1>
             <?php    
 
-                $sql = "SELECT p.*, ac.AccName FROM products p JOIN accounts ac ON p.prodAddedBy = ac.accID";
-                $result = mysqli_query($con, $sql);
+            
+                if (!isset ($_GET['page']) ) {  
+                
+                    $page_number = 1;  
+                
+                } else {  
+                
+                    $page_number = $_GET['page'];  
+                
+                }  
 
-                if (mysqli_num_rows($result) > 0) {
+                // variable to store the number of rows per page       
+                $limit = 5;  
+
+                // get the initial page number
+                $initial_page = ($page_number-1) * $limit; 
+
+                // query to retrieve all rows from the table Countries 
+                $sql = "SELECT p.*, ac.AccName FROM products p JOIN accounts ac ON p.prodAddedBy = ac.accID";
+
+                // get the result
+                $result = mysqli_query($con, $sql);  
+
+                $total_rows = mysqli_num_rows($result); 
+
+                // get the required number of pages
+                $total_pages = ceil ($total_rows / $limit);  
+
+                // get data of selected rows per page    
+                $getProduct = "SELECT p.*, ac.AccName FROM products p JOIN accounts ac ON p.prodAddedBy = ac.accID LIMIT " . $initial_page . ',' . $limit; 
+
+                $result2 = mysqli_query($con, $getProduct);  
+
+                if (mysqli_num_rows($result2) > 0) {
                     echo "<table>";
                     echo 
                         "<tr class = 'table_heading'>
@@ -60,7 +91,8 @@
                             <th>Action</th>
                         </tr>";
                     // output data of each row
-                    while ($row = mysqli_fetch_assoc($result)) {
+                    while ($row = mysqli_fetch_assoc($result2)) {
+                        
                         echo "<td>" . $row["AccName"] . "</td>";
                         echo "<td>" . $row["prodTitle"] . "</td>";
                         echo "<td>" . substr($row["prodDesc"], 0, 50) . "...</td>";
@@ -105,6 +137,15 @@
                 else{
                     echo "<h2>No products found.</h2>";
                 }
+                     
+                // show page number with link   
+        
+                for($page_number = 1; $page_number<= $total_pages; $page_number++) {  
+        
+                    echo '<div class="pagination"><a href = "manage-products.php?page=' . $page_number . '">' . $page_number . ' </a> </div>';  
+        
+                } 
+
             ?>
         </div>
 
