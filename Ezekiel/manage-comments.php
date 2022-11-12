@@ -41,14 +41,40 @@
     <div class = "container">
         <!-- Booking Detail -->
         <div class="booking_detail">
+
             <h1>Comments</h1>
             <?php    
+                
+                $prodID = $_GET['prodID'];
 
-                $prodID = $_POST['prodID'];
+                if (!isset ($_GET['page']) ) {  
+
+                    $page_number = 1;  
+                
+                } else {  
+                
+                    $page_number = $_GET['page'];  
+                
+                } 
+
+                // variable to store the number of rows per page       
+                $limit = 5;
+
+                // get the initial page number
+                $initial_page = ($page_number-1) * $limit; 
+
                 $sql = "SELECT * FROM discussions WHERE discProduct = $prodID";
                 $result = mysqli_query($con, $sql);
+                
+                $total_rows = mysqli_num_rows($result); 
 
-                if (mysqli_num_rows($result) > 0) {
+                $total_pages = ceil ($total_rows / $limit); 
+
+                $getComment = "SELECT * FROM discussions WHERE discProduct = $prodID LIMIT " . $initial_page . ',' . $limit; 
+
+                $result2 = mysqli_query($con, $getComment); 
+
+                if (mysqli_num_rows($result2) > 0) {
                     echo "<table>";
                     echo 
                         "<tr class = 'table_heading'>
@@ -58,9 +84,10 @@
                             <th>Visibility</th>
                             <th>Action</th>
                         </tr>";
+
                     // output data of each row
-                    
-                    while ($row = mysqli_fetch_assoc($result)) {
+                    while ($row = mysqli_fetch_assoc($result2)) {
+
                         echo "<td>"  . $row["discAddedBy"] . "</td>";                     
                         echo "<td>" . substr($row["prodDisc"], 0, 50) . "...</td>";
                         echo "<td>" . $row["discAddedDate"] . "</td>";     
@@ -92,6 +119,14 @@
                 else{
                     echo "<h2>No Comments found.</h2>";
                 }
+                
+                // show page number with link  
+
+                for($page_number = 1; $page_number<= $total_pages; $page_number++) { 
+
+                    echo '<div class="pagination"><a href = "manage-comments.php?page=' . $page_number . '&prodID=' .$prodID .'">' . $page_number . ' </a> </div>';  
+        
+                } 
             ?>
         </div>
 
