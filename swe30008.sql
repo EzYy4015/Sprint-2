@@ -685,7 +685,8 @@ INSERT INTO `promotions` (`promoID`, `promoTitle`, `promoDesc`, `promoImage`, `p
 
 CREATE TABLE `reviews` (
   `reviewID` int(10) NOT NULL,
-  `reviewComment` varchar(500) NOT NULL,
+  `reviewRating` int(1) NOT NULL,
+  `reviewComment` varchar(500) NOT NULL,  
   `reviewDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `reviewVisible` int(1) NOT NULL DEFAULT 1,
   `reviewAccID` int(10) UNSIGNED NOT NULL
@@ -695,9 +696,9 @@ CREATE TABLE `reviews` (
 -- Dumping data for table `reviews`
 --
 
-INSERT INTO `reviews` (`reviewID`, `reviewComment`, `reviewDate`, `reviewVisible`, `reviewAccID`) VALUES
-(1, 'This website is the best. :>', '2022-09-30 17:58:25', 1, 1),
-(2, 'This website is degrading! Boo!', '2022-09-30 17:58:57', 1, 1);
+INSERT INTO `reviews` (`reviewID`, `reviewRating`, `reviewComment`, `reviewDate`, `reviewVisible`, `reviewAccID`) VALUES
+(1, 5, 'This website is the best. :>', '2022-09-30 17:58:25', 1, 1),
+(2, 3, 'This website is degrading! Boo!', '2022-09-30 17:58:57', 1, 1);
 
 -- --------------------------------------------------------
 
