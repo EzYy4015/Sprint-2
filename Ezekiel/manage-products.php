@@ -63,7 +63,7 @@
                 $initial_page = ($page_number-1) * $limit; 
 
                 // query to retrieve all rows from the table Countries 
-                $sql = "SELECT p.*, ac.AccName FROM products p JOIN accounts ac ON p.prodAddedBy = ac.accID";
+                $sql = "SELECT p.*, ac.AccName FROM products p JOIN accounts ac ON p.prodAddedBy = ac.accID ORDER BY prodAddedDate DESC";
 
                 // get the result
                 $result = mysqli_query($con, $sql);  
@@ -74,7 +74,7 @@
                 $total_pages = ceil ($total_rows / $limit);  
 
                 // get data of selected rows per page    
-                $getProduct = "SELECT p.*, ac.AccName FROM products p JOIN accounts ac ON p.prodAddedBy = ac.accID LIMIT " . $initial_page . ',' . $limit; 
+                $getProduct = "SELECT p.*, ac.AccName FROM products p JOIN accounts ac ON p.prodAddedBy = ac.accID ORDER BY prodAddedDate DESC LIMIT " . $initial_page . ',' . $limit; 
 
                 $result2 = mysqli_query($con, $getProduct);  
 
@@ -124,7 +124,7 @@
                                     </li>     
                                      
                                     <li>
-                                    <form id = 'delete_form' action = 'manage-comments.php' method = 'post'>
+                                    <form id = 'delete_form' action = 'manage-comments.php' method = 'get'>
                                         <input type = 'hidden' name  = 'prodID' value = '" . $row["prodID"] . "'> 
                                         <input type = 'submit' id = 'btn_comments' name = 'btn_delete' value = 'Comments'>
                                     </form>

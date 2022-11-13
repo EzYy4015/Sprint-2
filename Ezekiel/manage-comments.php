@@ -63,14 +63,14 @@
                 // get the initial page number
                 $initial_page = ($page_number-1) * $limit; 
 
-                $sql = "SELECT * FROM discussions WHERE discProduct = $prodID";
+                $sql = "SELECT * FROM discussions WHERE discProduct = $prodID ORDER BY discAddedDate DESC";
                 $result = mysqli_query($con, $sql);
                 
                 $total_rows = mysqli_num_rows($result); 
 
-                $total_pages = ceil ($total_rows / $limit); 
+                $total_pages = ceil ($total_rows / $limit);  
 
-                $getComment = "SELECT * FROM discussions WHERE discProduct = $prodID LIMIT " . $initial_page . ',' . $limit; 
+                $getComment = "SELECT * FROM discussions WHERE discProduct = $prodID ORDER BY discAddedDate DESC LIMIT " . $initial_page . ',' . $limit; 
 
                 $result2 = mysqli_query($con, $getComment); 
 
