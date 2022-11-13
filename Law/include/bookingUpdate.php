@@ -1,7 +1,7 @@
 <?php
 
 // Law Yuk Fung
-// Laet edit: 20/10/2022 7:30pm
+// Laet edit: 13/11/2022 2:37pm
 //include 'BookingUpdate.php';
 // getData(bookingTime, bookingID);
 
@@ -22,9 +22,10 @@ DB::$host = $servername;
 
 function getDataAdmin($bookingTime, $booking_date, $bookingID)
 {
+	//get the updated data from admin side
 	$notifID = DB::queryFirstField("SELECT notifID FROM notif_bookings WHERE bookingID = %i", $bookingID);
 
-	//niew code added
+	//new code added => visitor will receive the notification only when they have booked the existing slots
 	$accIDs = DB::queryFirstColumn("SELECT accID FROM acc_bookings WHERE bookingID = %i AND bookingStatus = %i", $bookingID, 1);
 
 	$descr = DB:: queryFirstField("SELECT notifDesc FROM notification WHERE notifID = %i", $notifID);
@@ -137,6 +138,7 @@ function sendEmail($originTime, $bookingTime, $booking_date, $accIDs)
 
 				mail($to_email, $subject, $body, $headers);
 
+				//save the data into notification and acc_notification tables
 				$notifTitle = "Booking Slots Update";
 				$notifDescr = 'The booking at ' .$originTime. ' has changed to ' .$booking_date. ' at ' .$bookingTime ;
 				DB::insert('Notification', ['notifTitle' => $notifTitle, 'notifDesc' => $notifDescr]);
@@ -160,7 +162,7 @@ function sendEmail($originTime, $bookingTime, $booking_date, $accIDs)
 }
 
 function bookingUpdateVisitor($accID,$bookingID)
-{
+{	//get the data from visitors when they change their appointment
 	$notifID = DB::queryFirstField("SELECT notifID FROM notif_bookings WHERE bookingID = %i", $bookingID);
 	
 	$descr = DB:: queryFirstField("SELECT notifDesc FROM notification WHERE notifID = %i", $notifID);

@@ -22,16 +22,13 @@ DB::$host = $servername;
 date_default_timezone_set("Asia/Kuala_Lumpur");
 $schedule = strtotime("-2 hours");
 
-$date = date("Y-m-d", $schedule);
-$time = date("H:i:s", $schedule);
+// $date = date("Y-m-d", $schedule);
+// $time = date("H:i:s", $schedule);
 
 $datetime = date("Y-m-d H:i:s", $schedule);
 
 
-
-// $booking = DB::queryFirstField("SELECT bookingID FROM Bookings WHERE bookingTime >= %t AND bookingDate = %t" , $time, $date);
-
-$bookings = DB::queryFirstColumn("SELECT bookingID FROM Bookings WHERE CONCAT(bookingDate, ' ', bookingTime) >= %t;" , $datetime);
+$bookings = DB::queryFirstColumn("SELECT bookingID FROM Bookings WHERE CONCAT(bookingDate, ' ', bookingTime) >= %t;" , $datetime); //compare the datetime, CONCAT => combine
 
 foreach ($bookings as $booking) {
 
@@ -44,7 +41,7 @@ foreach ($bookings as $booking) {
 
 	foreach ($accounts as $account)
 	{
-		echo 'c' . PHP_EOL;
+		
 		$email = DB::queryFirstField("SELECT accEmail FROM Accounts WHERE accID = %i AND accNotifEnabled = %i", $account, 1);
 		
 		$to_email = $email;
@@ -130,8 +127,9 @@ foreach ($bookings as $booking) {
 		mail($to_email, $subject, $body, $headers);
 		
 
-		
+		// sent email to admin also 
 		$admin_accs = DB::query('SELECT accID, accEmail FROM Accounts WHERE accAccess = 2 AND accNotifEnabled = 1');
+
 		foreach ($admin_accs as $admin) {
 			mail($admin['accEmail'], $subject, $body, $headers);
 
@@ -142,10 +140,11 @@ foreach ($bookings as $booking) {
 			
 		}
 
+		//change the status to 1 => sent
 		DB::query("UPDATE Acc_Notifications SET status = %i WHERE accID = %i AND notifID = %i", 1, $account, $notifId);
 		
 	}
-
+	//change the status to 1 => sent
 	DB::query("UPDATE Notif_Bookings SET status = %i WHERE bookingID = %i AND notifID = %i", 1, $booking, $notifId);
 	
 	

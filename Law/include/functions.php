@@ -21,4 +21,12 @@ function check_userlogin(){
 	}
 }
 
+function checkLogin(){
+	if($_SESSION['loggedin'] != 1){
+		echo "<script>alert('You are not logged in.'); window.location.href='index.php';</script>";
+		die;
+	}
+}
+
+
 ?>

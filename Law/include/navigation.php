@@ -14,7 +14,7 @@
         <div class="sidenav-box">
             <a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
             <a href="#"><i class="fa fa-calendar-o" aria-hidden="true"></i> Bookings</a>
-            <a href="#"><i class="fa fa-leaf" aria-hidden="true"></i> Products</a>
+            <a href="productAndDiscussion.php"><i class="fa fa-leaf" aria-hidden="true"></i> Products</a>
             <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> Reviews</a>
             <a href="#"><i class="fa fa-book" aria-hidden="true"></i> Guide</a>
             '?>
@@ -24,12 +24,16 @@
             if($_SESSION['access'] == 2){
                 echo '<a href="report-main.php"><i class="fa fa-line-chart" aria-hidden="true"></i> Report</a>';
                 echo '<a href="housekeeping.php"><i class="fa fa-wrench" aria-hidden="true"></i> Housekeeping</a>';
+                //echo'<a href="productAndDiscussion.php"><i class="fa fa-leaf" aria-hidden="true"></i> Products</a>';
             }
             if($_SESSION['loggedin'] == 1){
                 echo '<a href="#"><i class="fa fa-user" aria-hidden="true"></i> My Profile</a>';
                 echo '<a href="include/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>';
+                //echo'<a href="productAndDiscussion.php"><i class="fa fa-leaf" aria-hidden="true"></i> Products</a>';
             } else {
                 echo '<a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>';
+                //echo'<a href="productAndDiscussion.php"><i class="fa fa-leaf" aria-hidden="true"></i> Products</a>';
+               
             }
 
             ?>

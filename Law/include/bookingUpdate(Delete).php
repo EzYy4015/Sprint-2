@@ -1,7 +1,7 @@
 <?php
 
 // Law Yuk Fung
-// Laet edit: 23/10/2022 4:30pm
+// Laet edit: 13/11/2022 2:40pm
 //include 'BookingUpdate(Delete).php';
 // getData(bookingID);
 
@@ -25,18 +25,18 @@ function getData($bookingID)
     $bookingDate = DB::queryFirstField("SELECT bookingDate FROM bookings WHERE bookingID = %i", $bookingID);
 	$notifID = DB::queryFirstField("SELECT notifID FROM notif_bookings WHERE bookingID = %i", $bookingID);
 
-    //niew code added
+    //new code added
 	$accIDs = DB::queryFirstColumn("SELECT accID FROM acc_bookings WHERE bookingID = %i AND bookingStatus = %i", $bookingID, 1);
 	
-    var_dump($bookingDate);
-    var_dump($notifID);
+    //var_dump($bookingDate);
+    //var_dump($notifID);
 
 	$descr = DB::queryFirstField("SELECT notifDesc FROM notification WHERE notifID = %i", $notifID);
 	
     // seperate the message to get the booking time
 	$originDescr = explode(" ", $descr);
 	$originTime = $originDescr[5]; 
-	var_dump($originTime);
+	//var_dump($originTime);
 
 	sendEmail($originTime, $bookingDate, $accIDs);
 	

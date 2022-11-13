@@ -22,12 +22,14 @@ DB::$host = $servername;
 
 function getData($accID, $bookingID)
 {
+	//get booking time from booking table
 	$bookingTime = DB::queryFirstField("SELECT bookingTime FROM Bookings WHERE bookingID = %i", $bookingID);
 	$remarks = DB::queryFirstField("SELECT remarks FROM Acc_Bookings WHERE  accID = %i AND bookingID = %i", $accID, $bookingID);
-	
-	//DB::insert('Acc_Notifications', ['accID' => $accID, 'notifID' => $notifID, 'status' => 0]);
-	
+
+	// call the function
 	sendEmail($accID, $bookingTime,$remarks);
+
+	//delete the notif from the acc_notification table
 	$notifID = DB::queryFirstField("SELECT notifID FROM Notif_Bookings WHERE bookingID = %i", $bookingID);
 	DB::query("DELETE FROM Acc_Notifications WHERE accID=%i AND notifID = %i", $accID, $notifID);
 	
@@ -39,9 +41,10 @@ function getData($accID, $bookingID)
 
 function sendEmail($accID, $bookingTime,$remarks)
 {
-	
+	//get the visitor's email
 	$email = DB::queryFirstField("SELECT accEmail FROM Accounts WHERE accID = %i AND accNotifEnabled = %i", $accID, 1);
 	
+	//html email content
 	$to_email = $email;
 	$subject = "Booking Cancellation";
 	$body = '<!DOCTYPE html>
@@ -125,9 +128,10 @@ function sendEmail($accID, $bookingTime,$remarks)
 	$notifTitle = "Booking Cancellation";
 	$notifDescr = "You have cancelled your booking on " .$bookingTime. " </br> Remarks: " .$remarks;
 	DB::insert('Notification', ['notifTitle' => $notifTitle, 'notifDesc' => $notifDescr]);
-	$notifID = DB::insertId();
+	$notifID = DB::insertId(); //get the new notif ID
 	DB::insert('Acc_Notifications', ['accID' => $accID, 'notifID' => $notifID,  'status' => 1]);
 	
+	//send email to admin for the booking cancellation
 	$admin_email = DB::query('SELECT accEmail, accID FROM Accounts WHERE accAccess = 2 AND accNotifEnabled = 1');
 	foreach ($admin_email as $ae) {
 		mail($ae['accEmail'], $subject, $body, $headers);

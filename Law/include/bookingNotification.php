@@ -22,27 +22,28 @@ DB::$host = $servername;
 
 function getData($bookingTime, $bookingDate, $bookingID)
 {
+	//to save the new bookings made by admin
 	$descr = "You have a booking at $bookingTime";
 	$bookingTitle = "Booking Notification";
 	
+	//insert booking notification into notification table
 	DB::insert('Notification', ['notifTitle' => $bookingTitle, 'notifDesc' => $descr]);
 	
-	// $notifID = DB::query("SELECT notifID FROM Notification WHERE notifID = %i",  IDENT_CURRENT('Notification'));
-	
-	// $bookingID = DB::query("SELECT bookingID FROM Bookings WHERE bookingID = %i",  IDENT_CURRENT('Advertisements'));
 
-	$notifID = DB::insertId();
+	$notifID = DB::insertId(); //get the notif ID
 	
-	//$bookingID = DB::query("SELECT bookingID FROM Bookings WHERE bookingID = %i",  SELECT LAST_INSERT_ID());
-	
+	//save notifID and bookingID into notif_bookings table
 	DB::insert('Notif_Bookings', ['bookingID' => $bookingID, 'notifID' => $notifID, 'status' => 0]);
 	
 }
 
 function getDataVisitor($accID,$bookingID)
 {
+	//to save the bookings made by visitor
 	$notifID = DB::queryFirstField("SELECT notifID FROM Notif_Bookings WHERE bookingID = %i", $bookingID);
-	var_dump($bookingID);
+	//var_dump($bookingID);
+
+	//save notifID and accID into acc_notifications table
 	DB::insert('Acc_Notifications', ['accID' => $accID, 'notifID' => $notifID, 'status' => 0]);
 }
 
