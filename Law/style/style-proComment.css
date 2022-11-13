@@ -1,0 +1,186 @@
+.individual-comment-container{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    margin: 30px 0; 
+    border-radius: 10px;
+}
+
+.individual-comment-section-left{
+    width: 37.5%;
+    display: inline-block;
+    padding-right:50px;
+}
+
+.individual-comment-section-left img{
+    width: 600px;
+    border-radius: 10px 0 0 10px;
+    float: left;
+    height: 400px;
+}
+
+.individual-comment-section-right{
+    margin-top: 100px;
+    text-align: left;
+}
+
+.commentbox,
+.postcomment .list{
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 2px 2px #0002;
+
+}
+
+.comment-session{
+  width: 650px;
+  height: auto;
+  display:none;
+  /* margin: 0 auto; */
+
+}
+
+.postcomment .list{
+  width: 100%;
+  margin-bottom: 12px;
+
+}
+
+.postcomment .list .user{
+  /* display: flex; */
+  padding: 8px;
+  overflow: hidden;
+  
+}
+
+.comment-session .name{
+  /* text-transform: uppercase; */
+  font-weight: 500;
+}
+
+.postcomment .list .day{
+  font-size: 10px;
+
+}
+
+.postcomment .commentPosted{
+  /* padding: 0 0 15px 58px; */
+  padding: 0 0 0 58px;
+  text-align: left;
+
+}
+
+.commentbox{
+  padding: 10px;
+  overflow: hidden;
+}
+
+.commentbox .user{
+  display: flex;
+  width: min-content;
+}
+
+.commentbox textarea, .commentboxinput{
+  background: #eee;
+  width: -webkit-fill-available;
+  
+  margin: 10px 0;
+  padding: 10px;
+  resize: inherit;
+  border-radius: 5px;
+  border:none;
+  box-shadow: 0 0 0 1px #0003;
+
+}
+
+
+.commentbox .commentsubmit{
+  float: right;
+  padding: 6px 10px;
+  border: none;
+  background: #009cff;
+  color: #eeee;
+  cursor: pointer;
+  border-radius: 3px;
+
+}
+
+.commentbox .commentsubmi:hover{
+  background: #009cff;
+}
+
+.comment-session .postcomment{
+
+  height: 300px;
+  overflow-y: scroll;
+}
+
+
+
+.postcomment .usermeta .editsubmit{
+  /* float: right; */
+  padding: 6px 10px;
+  border: none;
+  background: #009cff;
+  color: #eeee;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.postcomment .usermeta .editsubmit:hover{
+  background: #009cff;
+}
+
+.underline-on-hover:hover {
+    /* text-decoration: underline; */
+    cursor: pointer;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  
+}
+
+.pagination a:visited {
+    background-color: lightgrey;
+    color: black;
+    font-weight: bold;
+    
+  }
+
+/* .pagination a.active1 {
+    background-color: lightgrey;
+    color: black;
+    font-weight: bold;
+} */
+
+/* .pagination a.active2 {
+    background-color: lightgrey;
+    color: black;
+    font-weight: bold;
+  } */
+
+.pagination a:hover:not(.active1) {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+.list{
+    padding: 5px 0;
+}
+
+.commentbutton{
+    text-align: right;
+    margin-top:0;
+    margin-bottom:0;
+}
+
+.commentbox_commentid_{
+    margin:10px;
+}

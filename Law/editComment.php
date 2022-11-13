@@ -3,7 +3,7 @@
 session_start(); 
 
 if (!@$_SESSION['userid']) {
-    // not logged in, cannot save comment!!!
+    // not logged in, cannot save comment
     http_response_code(401);
     die();
 }
@@ -23,7 +23,7 @@ DB::$dbName = $dbname;
 DB::$host = $servername;
 
 // $comment = $_POST["comments"]; 
-$comment = htmlspecialchars( $_POST["comments"] );
+$comment = htmlspecialchars( $_POST["comments"] ); // prevent XSS refer from https://www.w3schools.com/php/func_string_htmlspecialchars.asp
 // $accID = $_POST["userID"]; 
 $accID = $_SESSION["userid"];  
 $commentid = +$_POST["commentid"];
@@ -34,11 +34,11 @@ DB::query("UPDATE pro_comments SET commentDisc=%s, commentAddedDate=%s, commentV
 //DB::insert('pro_comments', ['commentDisc' => $comment, 'commentAddedDate' => $date, 'discAddedBy' => $accID, 'discProduct' => $productid, 'commentVisible' => 1]);
 
 if (DB::affectedRows() == 1) {
-    echo 'OK';
+    echo 'OK';  //response from the sercer side to client side
     http_response_code(200);
     die();
 } else {
     echo 'FAIL';
-    http_response_code(500);
+    http_response_code(500); 
     die();
 }

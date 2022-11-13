@@ -1,4 +1,7 @@
 <?php
+// Law Yuk Fung
+// Laet edit: 9/11/2022 6:48pm
+
 
 $servername = "localhost";
 $username = "root";
@@ -6,7 +9,6 @@ $password1 = "";
 $dbname = "swe30008";
 
 require_once __DIR__.'/include/meekrodb-2.4/db.class.php';
-
 
 
 DB::$user = $username;
@@ -25,23 +27,30 @@ function getUser($prodID,$userID,$numSession)
     {
         $accName = DB::queryFirstField("SELECT accName  FROM accounts WHERE accID = %i", $user['discAddedBy']);
 
+        //$output .= '<div class="list" style="padding: 5px 0;"><div id="commentbox_commentid_'.$user['commentID']. '" style="margin:10px;">';
+        $output .= '<div class="list" ><div class ="commentbox_commentid_" id="commentbox_commentid_'.$user['commentID']. '">';
         $output .=  '' .$accName. '
         <div class="day">' .$user['commentAddedDate']. '</div>
-        <div class="commentPosted">' .$user['commentDisc']. '</div>';
+        <div class="commentPosted" id="commentposted_commentid_'.$user['commentID']. '">' .$user['commentDisc']. '</div>';
 
         if($userID == $user['discAddedBy'] and ($numSession == 1 || $numSession == 2)){
             
-            echo'<div><button type="submit" class="editsubmit" onclick="">Edit</button></div>';
+            //$output .= '<p style="text-align: right;margin-top:0;margin-bottom:0;"><button id="editsubmit_commentid_'.$user['commentID']. '" type="submit" class="editsubmit" href="" onclick="editComment('.$user['commentID']. ')">Edit</button></p>';
+            $output .= '<p class="commentbutton"><button id="editsubmit_commentid_'.$user['commentID']. '" type="submit" class="editsubmit" href="" onclick="editComment('.$user['commentID']. ')">Edit</button></p>';
+
         }else{
-            echo'';
+            $output .= '';
         }
 
+
+        $output .= '</div></div>';
+        // $output .= '<hr>';
     }
 
     
     
 
-    return $output;
+    return $output; 
 }
 
 ?>

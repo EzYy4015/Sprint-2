@@ -1,6 +1,7 @@
 
 <?php  ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL); ?>
-<!--  -->
+
+
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,12 +9,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title> Cacti Succulent</title>
 <link rel="stylesheet" type="text/css" href="style/style-index.css"/>
+<link rel="stylesheet" type="text/css" href="style/style-proComment.css"/>
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="script/script.js"></script>
 <script src="script/comment.js"></script>
-<style>
+
+<!--  Law Yuk Fung
+ Laet edit: 8/11/2022 7:14 pm
+//include 'BookingCancellation.php';
+// getData(accID, bookingID); -->
+<!-- <style>
 
 .underline-on-hover:hover {
     /* text-decoration: underline; */
@@ -41,14 +48,14 @@
   background-color: #ddd;
   border-radius: 5px;
 }
-</style>
+</style> -->
 
-<script>
+<!-- <script>
   function showAlert() {
     var myText = "Please login";
     alert (myText);
   }
-</script>
+</script> -->
 
 </head>
 <body>
@@ -56,8 +63,8 @@
     <?php include("include/navigation.php");
     
      include ('include/connection.php'); 
-     include("include/functions.php");
-     check_login();
+    //  include("include/functions.php");
+    //  check_login();
 
      ?> 
 
@@ -82,7 +89,7 @@
                     $page_number = $_GET['page'];  
                 
                 }  
-                
+                //refer from https://www.javatpoint.com/php-pagination 
                 // variable to store the number of rows per page       
                 $limit = 5;  
                 
@@ -111,16 +118,12 @@
                 //display the retrieved result on the webpage  
                 while ($row = mysqli_fetch_array($result)) {  
                     echo '
-                    <div class="individual-promo-container"> 
-                        <div class="individual-promo-section-left">
-                            <img src="'?> 
-
-                            <?php echo $row['prodImage']; ?>
-                            
-                        <?php echo '">
+                    <div class="individual-comment-container"> 
+                        <div class="individual-comment-section-left">
+                            <img src="'.$row['prodImage'].'"  onerror="this.onerror=null;this.src=\'images/promo1.jpg\';">
 
                         </div>
-                        <div class="individual-promo-section-right">
+                        <div class="individual-comment-section-right">
                             <h1>'?> 
                             
                             <?php echo $row['prodTitle']; ?> 
@@ -137,26 +140,37 @@
                             Comments
                         
                             </h1>
-                            <div class="comment-session" id="comment-session" style="display:none;">
+                            <div class="comment-session" id="comment-session">
                                 <div class="postcomment">
-                                    <div class="list">
                                         <div class="user">
                                             <div class="usermeta">
                                                  
                                                 <div class="name">' ?> <?php  include_once("productComment.php");
                                                 //echo $row["prodID"];
-                                                echo getUser($row["prodID"]);?>
+                                                if(@$_SESSION['userid']>0){
+                                                    $id = $_SESSION['userid'];
+
+                                                }else{
+                                                    $id = 0;
+                                                }
+
+                                                if(@$_SESSION['loggedin'] == 1 || @$_SESSION['loggedin'] == 2){
+                                                    $sessionID = $_SESSION['loggedin'];
+                                                }else{
+                                                    $sessionID = 0;
+                                                }
+
+                                                echo getUser($row["prodID"], $id,$sessionID);?>
                                                 <?php echo'
                                                 </div>
                                                 
                                             </div> 
                                         </div>
-                                    </div> 
                                     <div class="commentbox">
                                         <div class="user">
 
                                             <div class="name">' ?> <?php require_once __DIR__.'/include/meekrodb-2.4/db.class.php';
-                                            if (isset($_SESSION['userid']) || $_SESSION['userid'] > 0 || $_SESSION['loggedin'] == 1 ||$_SESSION['loggedin'] == 2){
+                                            if ($_SESSION['loggedin'] == 1 || $_SESSION['loggedin'] == 2){
                                                 // not logged in
                                                 $accName = DB::queryFirstField("SELECT accName  FROM accounts WHERE accID = %i", $_SESSION['userid']);
                                                 echo $accName;
@@ -171,14 +185,14 @@
                                         
                                             <textarea name="comments" id="comments" cols="30" rows="3" placeholder="Your message"></textarea>
                                             
-                                            <input type="hidden" name="userID" value="'.$_SESSION['userid'].'">
                                             <input type="hidden" name="productid" value="'.$row["prodID"].'">
 
                                             <button type="submit" class="commentsubmit" onclick="';
                                             
                                             
-                                            if (!isset($_SESSION['userid']) || $_SESSION['userid'] <= 0){
+                                            if ($_SESSION['loggedin'] != 1 and $_SESSION['loggedin'] != 2 ){
                                             // not logged in
+                                            
                                             echo 'showAlert();return false;'; 
                                             }
                                             
@@ -198,250 +212,13 @@
             
                 for($page_number = 1; $page_number<= $total_pages; $page_number++) {  
             
-                    echo '<div class="pagination"><a href = "productAndDiscussion.php?page=' . $page_number . '">' . $page_number . ' </a> </div>';  
-            
+                    echo '<div class="pagination"><a href = "productAndDiscussion.php?page=' . $page_number . '" id="page'. $page_number .'" onlick ="buttoncolour('. $page_number .')">' . $page_number . ' </a> </div>';  
+                    //echo'<script>buttoncolour('. $page_number .')</script>';
                 }    
 
-               
+               //echo'<script>buttoncolour('. $page_number .')</script>';
             ?>
-<!-- 
-                <div class="newcontainer">
 
-                
-                    <div class="individual-promo-container">
-                        <div class="individual-promo-section-left">
-                            <h1>
-                            
-                                Test
-                            
-                            </h1>
-
-                        </div>
-                        <div class="individual-promo-section-right">
-                            <h1>
-                            
-                                Test
-                            
-                            </h1>
-
-                            <p>
-                            
-                                Test
-
-                           </p>
-
-                           <h1 class="underline-on-hover" onclick="this.nextElementSibling.style.display=((this.nextElementSibling.style.display=='block')?'none':'block')">
-                                
-                                Comments
-                            
-                            </h1>
-                               
-
-                           
-                                
-                            <div class="comment-session" id="comment-session" style="display:none;">
-                                <div class="postcomment">
-                                    <div class="list">
-                                        <div class="user">
-                                            <div class="usermeta">
-                                                <div class="name">ABC</div>
-                                                <div class="day">2 hours ago</div>
-                                            </div>
-
-                                        </div>
-                                        <div class="commentPosted">abc123</div>
-                                    </div>
-                                    <div class="list">
-                                        <div class="user">
-                                            <div class="usermeta">
-                                                <div class="name">DEF</div>
-                                                <div class="day">1 hours ago</div>
-                                            </div>
-
-                                        </div>
-                                        <div class="commentPosted">abc123fadgfsjkfuwghnwsig</div>
-                                    </div>
-
-                                    <div class="list">
-                                        <div class="user">
-                                            <div class="usermeta">
-                                                <div class="name">DEF</div>
-                                                <div class="day">1 hours ago</div>
-                                            </div>
-
-                                        </div>
-                                        <div class="commentPosted">abc123fadgfsjkfuwghnwsig</div>
-                                    </div>
-
-                                    <div class="list">
-                                        <div class="user">
-                                            <div class="usermeta">
-                                                <div class="name">DEF</div>
-                                                <div class="day">1 hours ago</div>
-                                            </div>
-
-                                        </div>
-                                        <div class="commentPosted">abc123fadgfsjkfuwghnwsig</div>
-                                    </div>
-
-                                    <div class="list">
-                                        <div class="user">
-                                            <div class="usermeta">
-                                                <div class="name">DEF</div>
-                                                <div class="day">1 hours ago</div>
-                                            </div>
-
-                                        </div>
-                                        <div class="commentPosted">abc123fadgfsjkfuwghnwsig</div>
-                                    </div>
-                                
-                                </div>
-
-                                <div class="commentbox">
-                                    <div class="user">
-
-                                        <div class="name">ABC</div>
-                                    </div>
-                                    <form action="" method="post">
-                                    
-                                        <textarea name="comments" id="comments" cols="30" rows="3" placeholder="Your message"></textarea>
-                                        
-                                        <button class="commentsubmit">Comment</button>
-                                    </form>
-                                </div>
-                            </div>
-
-                        
-                                
-
-                            
-                        </div>
-                        
-
-                       
-
-                
-                    </div>
-
-
-
-                    <div class="individual-promo-container">
-                        <div class="individual-promo-section-left">
-                            <h1>
-                            
-                                Test
-                            
-                            </h1>
-
-                        </div>
-                        <div class="individual-promo-section-right">
-                            <h1>
-                            
-                                Test
-                            
-                            </h1>
-
-                            <p>
-                            
-                                Test
-
-                           </p>
-
-                           <h1 class="underline-on-hover" onclick="this.nextElementSibling.style.display=((this.nextElementSibling.style.display=='block')?'none':'block')">
-                                
-                                Comments
-                            
-                            </h1>
-                                
-                            <div class="comment-session" id="comment-session" style="display:none;">
-                                <div class="postcomment">
-                                    <div class="list">
-                                        <div class="user">
-                                            <div class="usermeta">
-                                                <div class="name">ABC</div>
-                                                <div class="day">2 hours ago</div>
-                                            </div>
-
-                                        </div>
-                                        <div class="commentPosted">abc123</div>
-                                    </div>
-                                    <div class="list">
-                                        <div class="user">
-                                            <div class="usermeta">
-                                                <div class="name">DFG-</div>
-                                                <div class="day">1 hours ago</div>
-                                            </div>
-
-                                        </div>
-                                        <div class="commentPosted">abc123fadgfsjkfuwghnwsig</div>
-                                    </div>
-
-                                    <div class="list">
-                                        <div class="user">
-                                            <div class="usermeta">
-                                                <div class="name">DEF</div>
-                                                <div class="day">1 hours ago</div>
-                                            </div>
-
-                                        </div>
-                                        <div class="commentPosted">abc123fadgfsjkfuwghnwsig</div>
-                                    </div>
-
-                                    <div class="list">
-                                        <div class="user">
-                                            <div class="usermeta">
-                                                <div class="name">DEF</div>
-                                                <div class="day">1 hours ago</div>
-                                            </div>
-
-                                        </div>
-                                        <div class="commentPosted">abc123fadgfsjkfuwghnwsig</div>
-                                    </div>
-
-                                    <div class="list">
-                                        <div class="user">
-                                            <div class="usermeta">
-                                                <div class="name">DEF</div>
-                                                <div class="day">1 hours ago</div>
-                                            </div>
-
-                                        </div>
-                                        <div class="commentPosted">abc123fadgfsjkfuwghnwsig</div>
-                                    </div>
-                                
-                                </div>
-
-                                <div class="commentbox">
-                                    <div class="user">
-
-                                        <div class="name">ABC</div>
-                                    </div>
-                                    <form action="" method="post">
-                                    
-                                        <textarea name="comments" id="comments" cols="30" rows="3" placeholder="Your message"></textarea>
-                                        
-                                        <button class="commentsubmit">Comment</button>
-                                    </form>
-                                </div>
-                            </div>
-
-                        
-                                
-
-                            
-                        </div>
-                        
-
-                       
-
-                
-                    </div>
-
-
-                   
-                    
-
-                </div> -->
 
              
                 
