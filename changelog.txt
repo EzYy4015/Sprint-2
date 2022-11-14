@@ -1,10 +1,9 @@
 Changelog
-
-14.11
+[Include what you have changed IF it involves other pages/ modules that aren't yours so when merging later will be easier]
 
 - added unset userid in logout
-- added if unset userid set to 0
-- added session chatid into index and logout
+- added if unset userid set to 0 in index
+- added session chatid into index and logout (set and unset)
 - when login, set chatid to 0 
 
 new files added:
