@@ -1,0 +1,18 @@
+changelog
+
+- added unset userid in logout
+- added if unset userid set to 0
+- added session chatid into index and logout
+- when login, set chatid to 0 lol
+
+
+current problem:
+- change admins get redirected to the form
+
+
+new files added:
+include chat-loader.php, create-registered-chats.php, end-chat.php, get-details-form.php, live-chat-messages.php, live-chat, submit-form.php
+
+livechat-vis.js
+
+style-livechat-vis.css
