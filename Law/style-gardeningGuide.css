@@ -1,0 +1,64 @@
+.search-box{
+    
+    
+    /* background: red; */
+    /* float:right; */
+    /* text-align:right; */
+    padding: 10px;
+    
+}
+
+.search-container{
+    
+    height:50px;
+    width: 300px;
+    background: white;
+    text-align:right;
+    margin-left:auto;
+    margin-right:0;
+    border-radius: 10px;
+   
+}
+
+.search-container input[type=text] {
+  
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: 2px solid white;
+    
+    border-radius: 10px;
+    background: white;
+    /* background-color: #ffeaca; */
+}
+.search-container button {
+  
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: white;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.search-container button:hover {
+    background: #ccc;
+}
+
+.guidebox{
+    padding: 20px;
+}
+
+.guide {
+    
+    width: 70%;
+    background: white;
+    margin: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
+    border-radius: 10px;
+    padding: 10px;
+    text-align: justify;
+}
