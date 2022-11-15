@@ -3,8 +3,6 @@
     src: url("../fonts/Comfortaa.ttf");
 }
 
-
-
 .search-box{
     
     
@@ -89,6 +87,7 @@
     cursor: pointer;
     border: none;
     font-family: Comfortaa;
+    margin-top: 20px;
 }
 
 .expandable:hover{
@@ -96,3 +95,15 @@
     transition: 0.3s ease-in-out;
 }
 
+.gardening-guide-container{
+    width: 95%;
+    padding: 30px;
+    margin-top: 21px;
+    background-color: #f0ede6;
+    margin-left: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: Comfortaa;
+    padding-bottom: 100px;
+}
