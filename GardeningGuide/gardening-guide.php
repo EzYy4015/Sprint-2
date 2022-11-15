@@ -67,7 +67,6 @@
                     }
 
                 ?>
-            </div>
         </div>
         <script>expandableGuide()</script>
 
