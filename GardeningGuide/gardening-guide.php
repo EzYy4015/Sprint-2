@@ -42,25 +42,34 @@
                 </form>
             </div>
         </div>
-        <div class="promo-container">
+
+        <div class="gardening-guide-container">
             <h1> Gardening Guide </h1>
 
             <!-- Loop this ya in PHP -->
-            <div class="guidebox">
-                <button type="button" class="expandable"> Placeholder <?php // PHP - Get guide name here.?> <i id="open" class="fa-solid fa-angle-down" style="float: right;"></i><i id="close" class="fa-solid fa-angle-up" style="float: right; display: none;"></i></button>
+                <button type="button" class="expandable"> Placeholder <?php // PHP - Get guide name here.?> <i id="open" class="fa-solid fa-angle-down" style="float: right;"></i></button>
                     <div class="guide">
                         <!--Insert everything else here. You may create new divs. -->
                         <p>Tetsing</p>
                     </div>
+
+                <?php
+
+                    $searchgardening = "SELECT * FROM guides";
+                    $querygardening = mysqli_query($con, $searchgardening);
+                    while($gardeningrow = mysqli_fetch_array($querygardening)){
+                        echo '<button type="button" class="expandable"> Placeholder <?php // PHP - Get guide name here.?> <i id="open" class="fa-solid fa-angle-down" style="float: right;"></i></button>';
+                        echo '
+                        <div class="guide">
+                            <p>'?> <?php echo $gardeningrow['guideDesc']; ?> <?php echo '</p>
+                        </div>
+                        ';
+                    }
+
+                ?>
             </div>
-
-
-
         </div>
-
         <script>expandableGuide()</script>
-
-
 
 
         <?php include("include/footer.php"); ?>
