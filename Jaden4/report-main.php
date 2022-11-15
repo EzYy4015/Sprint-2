@@ -499,7 +499,12 @@
                   October&nbsp;
                   <i>
                   <?php
-                    $prodsrate = floatval((($rowprod[0][0]-$rowprod[1][0])/$rowprod[1][0])*100);
+                    if($rowprod[1][0] == 0){
+                      $prodsrate = 0;
+                    } else{
+                      $prodsrate = floatval((($rowprod[0][0]-$rowprod[1][0])/$rowprod[1][0])*100);
+                    }
+                    
                     if($prodsrate < 0){
                       echo "<p class=red> <img src='images/down.png'> ".(round($prodsrate, 2)). "%</p>";
                     }
