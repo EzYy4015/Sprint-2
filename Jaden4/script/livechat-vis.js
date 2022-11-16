@@ -98,15 +98,15 @@ function openChat() {
   }
 
   function createRegisteredForm(){
+    const date = new Date();
     if(date.getHours() >= 9 && date.getHours() <= 14){
       $(document).ready(function(){
-        $("#create-registered").submit(function(event){
+        $("#startchat").click(function(event){
           event.preventDefault();
 
-          var accid = document.getElementById("accid").value;
+          var accid = document.getElementById("accid").value
 
           $.post("include/create-registered-chats.php", {accid: accid, function(){
-            alert("hi");
             location.reload();
           }})
         })
