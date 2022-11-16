@@ -1,0 +1,488 @@
+.review_filter_container{
+    background-color: white;
+    background-image: linear-gradient(to bottom,white,white,white,white,white,white,rgb(87, 201, 163,.7));
+    width: 75%;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 4px 4px rgb(0, 0, 0, .1);
+    padding: 4px;
+}
+
+.range_filter{ 
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    padding-top: 7px;
+}
+
+.review_date_filter{
+    text-align: center;
+    width: 95%;
+    margin: auto;
+    border-radius: 4px; 
+    background-color: rgb(0, 0, 0, .05);
+    background-image: linear-gradient(to right,rgb(255, 234, 202), white,white, rgb(255, 234, 202));
+}
+
+.review_filter{
+    margin:0px 10px;
+    display:inline-block;
+    padding: 3px;
+}
+
+.review_form_buttons{
+    text-align: center;
+}
+
+.filter_review, .reset_review{
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 5px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.filter_review:hover, .reset_review:hover{
+    background-color: rgb(24, 131, 86);;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 5px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 2px 2px rgb(0, 0, 0, .1);
+}
+
+.review_filter_date{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color:white;
+    color: rgb(24, 131, 86);
+    transition: 0.5s;
+    box-shadow: 3px 3px rgb(0, 0, 0, .1);
+    width:231px;
+    height: 20px;
+}
+
+.review_filter_date:hover{
+    background-color: rgb(255, 234, 202);
+}
+
+.filter_variations, .filter_visibility{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    background-color:white;
+    color: rgb(24, 131, 86);
+    transition: 0.5s;
+    box-shadow: 3px 3px rgb(0, 0, 0, .1);
+    width: 90px;
+}
+
+.filter_variations:focus , .filter_visibility:focus {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    background-color: rgb(255, 234, 202);
+    transition: 0.5s;
+    box-shadow: 4px 4px rgb(0, 0, 0, .1);
+}
+
+.filter_variations:hover, .filter_visibility:hover, .review_filter input[type=date]:hover{
+    box-shadow: 4px 4px rgb(0, 0, 0, .1);
+    cursor: pointer;
+}
+
+.add_container{
+    width: 72%;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#add_btn{
+    float: right;
+    background-color: rgb(24, 131, 86);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 8px 25px;
+    font-family: Comfortaa;
+    font-size: 100%;
+    text-decoration: none;
+}
+
+#add_btn:hover{
+    background-color: rgb(87, 201, 163);
+    transition: all 0.5s ease;
+}
+
+/* Modal Box */
+.bg-modal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+/* Rating in Add Review function */
+.add_rating{
+    display: grid;
+    place-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.rating_container{
+    width: 400px;
+    background: #e9ecef;
+    padding: 20px 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Close button */
+.rating_container .close{
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+/* Star Rating */
+.rating_container .star_widget input{
+    display: none;
+}
+
+.star_widget label{
+    font-size: 35px;
+    color: #444;
+    padding: 8px;
+    float: right;
+    transition: all 0.2s ease;
+}
+
+.star_widget input:not(:checked) ~ label:hover,
+.star_widget input:not(:checked) ~ label:hover ~ label{
+    color: #fd4;
+}
+
+.star_widget input:checked ~ label{
+    color: #fd4;
+}
+
+/* Text area */
+.textarea{ 
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+
+.textarea textarea{
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    resize: none;
+    box-sizing: border-box;
+    border: 1px solid #444;
+    font-size: 14px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+/* Post Button */
+.post_btn{
+    width: 100%;
+    height: 40px;
+    margin: 15px 0;
+}
+
+.post_btn input{
+    font-family: Comfortaa;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(24, 131, 86);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.post_btn input:hover{
+    background-color: rgb(87, 201, 163);
+    transition: all 0.5s ease;
+}
+
+/* User Review */
+.mainbody .user_review{
+    width: 70%;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1% 1%;
+    border-radius: 3px;
+    background-color: white;
+    overflow: auto;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.mainbody.row1{
+    width: 100%;
+}
+
+.mainbody .row1 .review_user_name{
+    width: 90%;
+    box-sizing: border-box;
+    float: left;
+}
+
+.mainbody .row1 .action{
+    width: 10%;
+    height: 100%;
+    float: right;
+    box-sizing: border-box;
+}
+
+.row1 .action .edit_button, .row1 .action .delete_button{
+    float: right;
+    padding: 8px;
+}
+
+.row1 .action .edit_button i, .row1 .action .delete_button i{
+    font-size: 18px;
+    color: black;
+}
+
+.row1 .action .edit_button:hover, .row1 .action .delete_button:hover{
+    background-color: rgb(220, 220, 220);
+    border-radius: 7px;
+    transition: all 0.3s ease;
+}
+
+.review_comment{
+    width: 100%;
+    clear: both;
+}
+
+.review_date{
+    float: right;
+}
+
+.result{
+    text-align: center;
+    margin-top: 60px;
+}
+
+
+
+@font-face{
+    font-family: "Comfortaa";
+    src: url("../fonts/Comfortaa.ttf");
+}
+
+body, html{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+    font-family: Comfortaa;
+}
+
+@font-face {
+    font-family: "mainfont";
+    src: url("../fonts/Cocogoose.ttf");
+}
+
+@font-face {
+    font-family: "joy";
+    src: url("../fonts/Joynoted.ttf");
+}
+
+@font-face {
+    font-family: "typewriter";
+    src: url("../fonts/JMHTypewriter.otf");
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: white; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    font-family: mainfont;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    margin-left: 5px;
+    transition: 0.2s ease-in;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sidenav img{
+    margin-left: 10px;
+    margin-top: -55px;
+}
+
+.opennav{
+    position: fixed;
+    top: 0;
+    margin-left: 12px;
+    margin-top: 9px;
+    padding: 2px 4px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.sidemsg img{
+    position: fixed;
+    margin-top: 15%;
+}
+
+.sidenav-box{
+    margin-top: 50%;
+    z-index: 10;
+}
+
+.sidenav-contact{
+    height: 20%;
+    bottom: 20px;
+    position: absolute;
+}
+
+.sidenav-contact p{
+    font-family: mainfont;
+    padding-left: 25px;
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: none;
+}
+
+.sidenav-contact-logos a{
+    display: inline-block;
+    font-family: none;
+    margin-top: -20px;
+    color: black;
+    font-size: 30px;
+}
+
+.sidenav-contact-logos a:hover{
+    margin-left: 0;
+    font-size: 32.5px;
+}
+
+.mainbody{
+    margin-left: 60px;
+    padding-top: 3%;
+    background-color: rgb(255, 234, 202);
+}
+
+.footer-container{
+    background-color: green;
+    /* 1 rem = 16px */
+    box-sizing: border-box;
+}
+
+.footer{
+    /* 40 viewport height */
+    height: 35vh;
+    background-color: rgb(24, 131, 86);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.footer-heading{
+    display: flex;
+    flex-direction: column;
+    margin-right: 4rem;
+}
+
+.footer-heading h2{
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    color: white;
+    font-family: Comfortaa;
+}
+
+.footer-heading a{
+    color: white;
+    font-size: 12.5px;
+    font-family: Comfortaa;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.footer-heading a:hover{
+    font-size: 15px;
+    transition: 0.2s ease-in-out;
+}
+
+.footer-bottom{
+    text-align: center;
+    color: white;
+}
+
+.footer-bottom p{
+    background: black;
+    margin: 0 auto;
+    font-family: Comfortaa;
+}
+
+.footer-grass img{
+    margin-bottom: -5px;
+    width: 100%;
+    margin-top: 50px;
+}
