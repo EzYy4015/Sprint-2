@@ -40,16 +40,18 @@
 
                 
                 else if($_SESSION['loggedin'] == 1){
-                    echo "<a href='#' onclick='connectAgent("?> <?php echo $_SESSION['loggedin']; ?> <?php echo ")'>
-                        <form method='POST' action='' id='create-registered' name='create-registered'>
-                            <input hidden type='text' id='accid' name='accid' value='"?> <?php echo $_SESSION['userid']; ?> <?php echo "'>
-                            <p><input id='submit-button-registered' type='submit' value='I want to talk to a live agent.'></p>
-                        </form>
-                        </a>
+                    echo "
+                        <span onclick='connectAgent("?> <?php echo $_SESSION['loggedin']; ?> <?php echo ");return false;'>
+                            <form class='startchat' id='startchat' name='startchat' method='POST' action=''>
+                                <input hidden type='text' id='accid' name='accid' value='"?> <?php echo $_SESSION['userid']; ?> <?php echo "'>
+                                <p><input id='submit-button-registered' name='submit' type='submit' value='I want to talk to a live agent.'></p>
+                            </form>
+                        </span>
                         <script>createRegisteredForm()</script>
                     ";
                 }
                 ?>
+
                 <?php echo "
             </div>
         </div>
