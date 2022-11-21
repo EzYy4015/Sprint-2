@@ -128,7 +128,7 @@ function openChat() {
         $.post("include/live-chat-messages.php", {message: message, chatid: chatid, userid: userid, function(){
           
         }})
-        document.getElementById("message").reset();
+        document.getElementById("send-message-chat").reset();
       })
     })
   }
