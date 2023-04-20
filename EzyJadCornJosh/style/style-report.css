@@ -1,6 +1,9 @@
-body{
-    margin: 0;
-    padding: 0;
+body, html{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
     background-color: rgb(255, 234, 202); 
 }
 
@@ -20,59 +23,118 @@ body{
     src: url("../fonts/JMHTypewriter.otf");
 }
 
-/* Logo */
-.logo img{
-    position: absolute;
-    margin-left: 25px;
-    margin-top: 5px;
-    z-index: 2;
-    position: fixed;
-    top: 0;
+@font-face {
+    font-family: "Comf";
+    src: url("../fonts/Comfortaa.ttf");
 }
 
-/* Nav Bar */
-.navbar nav{
-    width: 100%;
-    /* background: rgba(0, 0, 0, 0.5); */
-    background: white; 
-    height: 65px;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
+/* Begin of template style, scroll until you find the end comment */
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 15; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: white; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    font-family: mainfont;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    margin-left: 5px;
+    transition: 0.2s ease-in;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
     top: 0;
-    overflow: hidden;
+    right: 15px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sidemsg{
+    background-color: white;
+    margin-top: 0;
+    width: 60px;
+    height: 100%;
+    display: block;
+    float: left;
     position: fixed;
+}
+
+.opennav{
+    position: fixed;
+    top: 0;
+    margin-left: 12px;
+    margin-top: 9px;
+    padding: 2px 4px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.sidemsg img{
+    position: fixed;
+    margin-top: 15%;
+}
+
+.sidenav-box{
+    margin-top: 50%;
     z-index: 1;
 }
 
-.navbar ul{
-    padding: 0;
-    margin-top: 2.5px;
-    list-style: none;
-    display: inline-block;
+.sidenav-contact{
+    height: 20%;
+    margin-top: 5%;
 }
 
-.navbar li{
-    float: left;
-}
-
-.navbar li a{
-    width: 100px;
-    display: block;
-    padding: 20px 15px;
-    text-decoration: none;
+.sidenav-contact p{
     font-family: mainfont;
-    font-size: 17.5px;
-    color: black;
-    text-align: center;
+    padding-left: 25px;
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: none;
 }
 
-.navbar li a:hover{
-    /* box-shadow: inset 0 5px #50C878; */
-    margin-top: -2.5px;
-    transition: 0.1s ease-out; 
-    font-size: 19px;
+.sidenav-contact-logos a{
+    display: inline-block;
+    font-family: none;
+    margin-top: -20px;
+    color: black;
+    font-size: 30px;
 }
+
+.sidenav-contact-logos a:hover{
+    margin-left: 0;
+    font-size: 32.5px;
+}
+
+.mainbody{
+    margin-left: 60px;
+    background-color: rgb(255, 234, 202);
+}
+
+/* End of template */
+
+
 
 /* Text Styles */
 .texts1 h1{
@@ -380,4 +442,118 @@ body{
 .patbut .but2:hover{
     font-size: 27.5px;
     transition: 0.2s ease-in-out;
+}
+
+.month-select{
+    margin-left: 42%;
+    width: 12%;
+    padding: 25px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.month-select option, select, button{
+    font-family: Comf;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.month-comparison{
+    background-color: white;
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+.month-comparison h1{
+    text-align: center;
+    font-family: Typewriter;
+}
+
+.month-comparison p{
+    text-align: center;
+    font-family: Typewriter;
+    font-size: 20px;
+}
+
+.month-comparison-selection-boxes{
+    width: 39%;
+    margin: 0 auto; 
+}
+
+.month-comparison-selection-boxes p{
+    text-align: center;
+    font-family: Typewriter;
+    font-size: 20px;
+}
+
+.month-comparison-selection-boxes option, select, button{
+    font-family: Comf;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 0 auto;
+    display: block;
+}
+
+.compare-graph-box{
+    margin: 0 auto;
+    width: 90%;
+}
+
+.month-select-button{
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.month-select-button:hover{
+    background-color: #DCDCDC;
+    transition: 0.2s ease-in;
+}
+
+.month-comparison-button{
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.month-comparison-button:hover{
+    background-color: #DCDCDC;
+    transition: 0.2s ease-in;
+}
+
+.compare-graph-results{
+    margin: 50px auto;
+}
+
+.more-detailed-graph-button{
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.more-detailed-graph-button a{
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: Typewriter;
+    text-transform: uppercase;
+    border: 2px solid black;
+    color: black;
+}
+
+.more-detailed-graph-button a:hover{
+    background-color: #DCDCDC;
+    transition: 0.2s ease-in;
 }
